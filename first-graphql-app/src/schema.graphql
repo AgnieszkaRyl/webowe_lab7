@@ -1,26 +1,11 @@
-type Query {
-    demo: String!
-    employees: [Empleyee!]
-    employee(id: ID!): Empleyee
-}
-
-type Empleyee {
-    id: ID!
-    name: String!
-    title: String!
-    email: String!
-    contractor: Boolean!
-    age: Int!
-}
-
-type ToDoItem{
+type ToDoItem {
     id: ID!
     title: String!
     completed: Boolean!
     user: User!
 }
 
-type User{
+type User {
     id: ID!
     name: String!
     email: String!
@@ -33,4 +18,22 @@ type Query {
     todo(id: ID!): ToDoItem
     users: [User!]
     user(id: ID!): User
+}
+
+type Mutation {
+    addUser(data: AddUserInput!): User
+    editUser(id: ID!, data: EditUserInput!): User
+    removeUser(id: ID!): User
+}
+
+input AddUserInput {
+    name: String!
+    email: String!
+    login: String!
+}
+
+input EditUserInput {
+    name: String
+    email: String
+    login: String
 }

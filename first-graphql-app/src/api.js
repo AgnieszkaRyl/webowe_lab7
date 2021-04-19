@@ -19,7 +19,7 @@ const fetchUserById = id => axios
   .then(res => mapUserResponse(res.data))
 
 const mapUserResponse = ({ id, name, email, username }) => ({
-  id,
+  id: String(id),
   name,
   email,
   login: username
